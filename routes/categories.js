@@ -7,6 +7,7 @@ const categoryController = require('../controllers/categoryController')
 router.post('/', verifyToken, categoryExists, categoryController.addCategory)
 
 router.get('/', verifyToken, categoryController.getCategories)
+// router.get('/',  categoryController.getCategories)
 
 router.get('/:id', verifyToken, categoryController.getCategory)
 

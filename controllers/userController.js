@@ -44,7 +44,8 @@ module.exports.loginUser = (req,res) => {
 
 			const isPasswordCorrect = bcrypt.compareSync(req.body.password, foundUser.password)
 			if(isPasswordCorrect){
-				res.send({accessToken: createAccessToken(foundUser)})
+				res.send({accessToken: createAccessToken(foundUser),
+							userId: foundUser._id})
 			} else {
 
 				res.send({err: "Password is incorrect."})

@@ -1,6 +1,6 @@
 const Category = require('../models/Category')
 const Entry = require('../models/Entry')
-
+	
 
 module.exports.addEntry = (req,res) => {
 
@@ -51,7 +51,7 @@ module.exports.getExpenses = (req,res) => {
 
 	Entry.find({userId: req.user.id})
 	.then(entries => {
-		let expenses = entries.filter(entry => entry.type === "Expense")
+		let expenses = entries.filter(entry => entry.type === "expense")
 		res.send(expenses)
 	})
 	.catch(err => {
@@ -64,7 +64,7 @@ module.exports.getIncome = (req,res) => {
 
 	Entry.find({userId: req.user.id})
 	.then(entries => {
-		let income = entries.filter(entry => entry.type === "Income")
+		let income = entries.filter(entry => entry.type === "income")
 		res.send(income)
 	})
 	.catch(err => {
